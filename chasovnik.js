@@ -38,6 +38,39 @@ function system(radius)
 			stroke('green');
 			ellipse(abs((2*radius - x)-radius),radius - y,1,1);
 
+			
+			
+			function setup() {
+	createCanvas(1100, 1100);
+	system();
+}
+
+
+function system(){
+	for(var i = 0 ; i < 100;i++)
+	{
+		for(var j = 0; j < 100;j++)
+		{
+			var x = i * 10;
+			var y = j * 10;
+			rect(x,y,10,10);
+		}
+	}
+
+	stroke('red');
+	fill('red');
+	line(500,0,500,1000);
+	line(0,500,1000,500);
+
+stroke('black');
+fill('black');
+ellipse(0+500,0+500,10*3)
+}
+
+
+function draw() {
+
+}
 			//Third Quadrant
 			stroke('green');
 			ellipse(abs((2*radius - x)-radius),radius + y,1,1);
