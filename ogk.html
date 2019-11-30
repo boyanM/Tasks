@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+
+<!--
+	Това е демо-шаблон на първото домашно задание по ОКГ.
+	Вижте коментарите във файла, за да разберете къде да променяте.
+	
+	Разделяне/слепване на двете части на йероглифа:
+		клик с ляв бутон или клавиш "интервал"
+		
+	Показване/скриване на рамката:
+		клик с десен бутон или някой друг клавиш
+-->
+	
+<html>
+	<head>
+		<script src="three.min.js"></script>
+		<script src="kanji.js"></script>
+	</head>
+	
+	<body onload="main()">
+		<!-- В тага h1 си напишете факултетния номер, групата в Мудъл и двете си имена-->
+		<h1>ф.н. 81902 &ndash; група 2 &ndash; Боян Миланов</h1>
+
+		<!-- В този script таг напишете кода си за създаване на
+		йероглифа в две половини, разделени с диагонална черта
+		от горе-ляво до долу-дясно. Кодът по-долу е само примерен.
+		Махнете го и сложете вашия код на негово място. -->
+		<script>
+			// Елементите, които принадлежат на горната-дясна половина
+			// на йероглифа ги добавете към обекта PART1, а елементите
+			// на долната-лява половина - в PART2.
+			
+			// Кодът по-надолу създава две стъпаловидни половини на
+			// плочка; целта е да се покаже как да използвате двата
+			// обекта PART1 и PART2 (те са създадени в kanji.js и
+			// пак от там се манипулират, затова не им променяйте
+			// имената).
+			
+			// Създаваме си материал за елементите - добре е да не
+			// е прекалено ярък или тъмен, за да се виждат добре нещата.
+			var material = new THREE.MeshPhongMaterial({color:'gray',shininess:100});
+			var extrudeSettings = { amount: 6, bevelEnabled: false };
+
+			var lcube_up1 = new THREE.Mesh( new THREE.BoxGeometry(1.6,5.90,6), material );
+			lcube_up1.position.set(-2.61,6.535,0);
+
+			var triangle = new THREE.Shape();
+				triangle.moveTo(-3.41, 3.588);
+            	triangle.lineTo(-1.81, 3.588);
+            	triangle.lineTo(-1.81, 2.228);
+
+            var triangle = new THREE.ExtrudeGeometry(triangle, extrudeSettings);
+            var triangle_bot2 = new THREE.Mesh(triangle, material);
+            triangle_bot2.position.z -= 3;
+
+			var lcube_up2 = new THREE.Mesh( new THREE.BoxGeometry(3.18,1.6,6), material );
+			lcube_up2.position.set(-5,8.685,0);
+
+			var triangle = new THREE.Shape();
+				triangle.moveTo(-8.42, 9.485);
+            	triangle.lineTo(-6.59, 9.485);
+            	triangle.lineTo(-6.59, 7.885);
+            	triangle.lineTo(-6.82, 7.885);
+            	triangle.lineTo(-6.82, 6.99);
+            	triangle.lineTo(-8.42, 8.35);
+
+            var triangle = new THREE.ExtrudeGeometry(triangle, extrudeSettings);
+            var triangle_top2 = new THREE.Mesh(triangle, material);
+            triangle_top2.position.z -= 3;
+
+			var triangle = new THREE.Shape();
+				triangle.moveTo(-3.41, 5.63);
+            	triangle.lineTo(-3.41, 4.03);
+            	triangle.lineTo(-4.32, 4.03);
+            	triangle.lineTo(-5.68, 5.63);
+
+            var triangle = new THREE.ExtrudeGeometry(triangle, extrudeSettings);
+            var triangle_mid2 = new THREE.Mesh(triangle, material);
+            triangle_mid2.position.z -= 3;
+
+
+			var rcube_bot = new THREE.Mesh( new THREE.BoxGeometry(9.09,1.6,6), material );
+			rcube_bot.position.set(4.785,2.34,0);
+			
+			var rcube_side1 = new THREE.Mesh( new THREE.BoxGeometry(1.6,6.81,6), material );
+			rcube_side1.position.set(1.04,6.545,0);
+
+			var rcube_side2 = new THREE.Mesh( new THREE.BoxGeometry(1.6,6.81,6), material );
+			rcube_side2.position.set(8.53,6.545,0);
+
+			var rcube_mid = new THREE.Mesh( new THREE.BoxGeometry(5.9,1.6,6), material );
+			rcube_mid.position.set(4.79,5.76,0);
+
+			var rcube_top = new THREE.Mesh( new THREE.BoxGeometry(5.9,1.6,6), material );
+			rcube_top.position.set(4.79,9.15,0);
+
+			// Добавяме ги към обекта PART1 (името е фиксирано).
+			part1.add(lcube_up1,lcube_up2,rcube_bot,rcube_side1,rcube_side2,rcube_mid,rcube_top,triangle_mid2,triangle_bot2,triangle_top2);
+			//-------------------------------------------------------------------------------------------------------------------------------
+			//LEFT - BOTTOM 
+			var lcube_down1 = new THREE.Mesh( new THREE.BoxGeometry(1.6,5.68,6), material );
+			lcube_down1.position.set(-7.62,-1.3,0);
+
+			var lcube_down2 = new THREE.Mesh( new THREE.BoxGeometry(1.6,5.68,6), material );
+			lcube_down2.position.set(-2.61,-1.3,0);
+
+			var lcube_down3 = new THREE.Mesh( new THREE.BoxGeometry(3.5,1.6,6), material );
+			lcube_down3.position.set(-5.113,-3.345,0);
+
+			var lcube_down4 = new THREE.Mesh( new THREE.BoxGeometry(3.5,1.6,6), material );
+			lcube_down4.position.set(-5.113,0.74,0);			
+			
+			var lcube_mid1 = new THREE.Mesh( new THREE.BoxGeometry(1.6,4.09,6), material );
+			lcube_mid1.position.set(-7.62,3.585,0);
+
+			var triangle = new THREE.Shape();
+				triangle.moveTo(-8.42, 5.63);
+            	triangle.lineTo(-6.82, 5.63);
+				triangle.lineTo(-6.82, 6.99);
+            	triangle.lineTo(-8.42, 8.35);
+
+            var triangle = new THREE.ExtrudeGeometry(triangle, extrudeSettings);
+            var triangle_top1 = new THREE.Mesh(triangle, material);
+            triangle_top1.position.z -= 3;
+
+			var lcube_mid2 = new THREE.Mesh( new THREE.BoxGeometry(1.14,1.6,6), material );
+			lcube_mid2.position.set(-6.25,4.83,0);							
+
+			var triangle = new THREE.Shape();
+				triangle.moveTo(-5.68,4.03);
+            	triangle.lineTo(-4.32, 4.03);
+            	triangle.lineTo(-5.68, 5.63);
+
+            var triangle = new THREE.ExtrudeGeometry(triangle, extrudeSettings);
+            var triangle_mid1 = new THREE.Mesh(triangle, material);
+            triangle_mid1.position.z -= 3;
+
+            var triangle = new THREE.Shape();
+				triangle.moveTo(-3.41, 1.54);
+            	triangle.lineTo(-1.81, 1.54);
+            	triangle.lineTo(-1.81, 2.228);
+            	triangle.lineTo(-3.41,3.588);
+
+            var triangle = new THREE.ExtrudeGeometry(triangle, extrudeSettings);
+            var triangle_bot1 = new THREE.Mesh(triangle, material);
+            triangle_bot1.position.z -= 3;
+
+			// Добавяме ги към обекта PART2 (името е фиксирано).
+			part2.add( lcube_down1,lcube_down2,lcube_down3,lcube_down4,lcube_mid1,lcube_mid2,triangle_mid1,triangle_bot1,triangle_top1);
+
+			// Файлът kanji.js се грижи да нарисува земята и двете половини
+			// на йероглифа; грижи се и раздалечаването и приближаването на
+			// тези половини; показване/скриване на рамката; звукови ефекти
+			// и потрепване. Това е само за ваша информация, ако евентуално
+			// се чудете къде се прави магията. Това май е най-подравненият
+			// коментар досега -- както отляво, така и отдясно е подравнен.
+		</script>
+	</body>
+</html>
