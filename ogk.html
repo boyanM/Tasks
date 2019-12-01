@@ -47,7 +47,9 @@
 			var triangle = new THREE.Shape();
 				triangle.moveTo(-3.41, 3.588);
             	triangle.lineTo(-1.81, 3.588);
-            	triangle.lineTo(-1.81, 2.228);
+            	triangle.lineTo(-1.81, 1.65);
+            	triangle.lineTo(-3.41, 3.2);
+
 
             var triangle = new THREE.ExtrudeGeometry(triangle, extrudeSettings);
             var triangle_bot2 = new THREE.Mesh(triangle, material);
@@ -61,7 +63,7 @@
             	triangle.lineTo(-6.59, 9.485);
             	triangle.lineTo(-6.59, 7.885);
             	triangle.lineTo(-6.82, 7.885);
-            	triangle.lineTo(-6.82, 6.99);
+            	triangle.lineTo(-6.82, 6.74);
             	triangle.lineTo(-8.42, 8.35);
 
             var triangle = new THREE.ExtrudeGeometry(triangle, extrudeSettings);
@@ -94,8 +96,61 @@
 			var rcube_top = new THREE.Mesh( new THREE.BoxGeometry(5.9,1.6,6), material );
 			rcube_top.position.set(4.79,9.15,0);
 
+
+            var curve = new THREE.Shape();
+            	curve.moveTo(0.45,-0.73);
+            	curve.lineTo(1.59,-1.87);
+            	curve.quadraticCurveTo(2.73,-0.51,3.18,1.54);
+            	curve.lineTo(1.59,1.54);
+            	curve.quadraticCurveTo(1.36,0.63,0.45,-0.73);
+
+            var curve = new THREE.ExtrudeGeometry(curve, extrudeSettings);
+            var curve4 = new THREE.Mesh(curve, material);
+            curve4.position.z -= 3;
+
+            var curve = new THREE.Shape();
+            	curve.moveTo(1.36,-1.64);
+            	curve.lineTo(2.27,-0.28);
+            	curve.lineTo(9.54,-0.28);
+            	curve.lineTo(9.54,-1.64);
+
+            var curve = new THREE.ExtrudeGeometry(curve, extrudeSettings);
+            var curve5 = new THREE.Mesh(curve, material);
+            curve5.position.z -= 3;
+
+			var curve = new THREE.Shape();
+            	curve.moveTo(9.54,-1.64);
+            	curve.quadraticCurveTo(9.31,-5.29,8.63,-8.91);
+            	curve.lineTo(7.49,-7.77);
+            	curve.quadraticCurveTo(7.95,-4.82,8.18,-1.64);
+
+            var curve = new THREE.ExtrudeGeometry(curve, extrudeSettings);
+            var curve6 = new THREE.Mesh(curve, material);
+            curve6.position.z -= 3;              
+
+            var curve = new THREE.Shape();
+            	curve.moveTo(7.04,-1.64);
+            	curve.quadraticCurveTo(6.81,-3.91,5.68,-5.93);
+            	curve.lineTo(4.54,-4.82);
+            	curve.quadraticCurveTo(5.23,-3.23,5.23,-1.64);
+
+            var curve = new THREE.ExtrudeGeometry(curve, extrudeSettings);
+            var curve8 = new THREE.Mesh(curve, material);
+            curve8.position.z -= 3; 
+
+            var curve = new THREE.Shape();
+            	curve.moveTo(3.87,-1.64);
+            	curve.quadraticCurveTo(3.64,-2.55,3.19,-3.46);
+            	curve.lineTo(2.28,-2.55);
+            	curve.quadraticCurveTo(2.50,-2.09,2.28,-1.64);
+            	//curve.lineTo(2.28,-1.64);
+
+            var curve = new THREE.ExtrudeGeometry(curve, extrudeSettings);
+            var curve10 = new THREE.Mesh(curve, material);
+            curve10.position.z -= 3;
+
 			// Добавяме ги към обекта PART1 (името е фиксирано).
-			part1.add(lcube_up1,lcube_up2,rcube_bot,rcube_side1,rcube_side2,rcube_mid,rcube_top,triangle_mid2,triangle_bot2,triangle_top2);
+			part1.add(lcube_up1,lcube_up2,rcube_bot,rcube_side1,rcube_side2,rcube_mid,rcube_top,triangle_mid2,triangle_bot2,triangle_top2,curve4,curve5,curve6,curve8,curve10);
 			//-------------------------------------------------------------------------------------------------------------------------------
 			//LEFT - BOTTOM 
 			var lcube_down1 = new THREE.Mesh( new THREE.BoxGeometry(1.6,5.68,6), material );
@@ -116,7 +171,7 @@
 			var triangle = new THREE.Shape();
 				triangle.moveTo(-8.42, 5.63);
             	triangle.lineTo(-6.82, 5.63);
-				triangle.lineTo(-6.82, 6.99);
+				triangle.lineTo(-6.82, 6.74);
             	triangle.lineTo(-8.42, 8.35);
 
             var triangle = new THREE.ExtrudeGeometry(triangle, extrudeSettings);
@@ -138,15 +193,81 @@
             var triangle = new THREE.Shape();
 				triangle.moveTo(-3.41, 1.54);
             	triangle.lineTo(-1.81, 1.54);
-            	triangle.lineTo(-1.81, 2.228);
-            	triangle.lineTo(-3.41,3.588);
+            	triangle.lineTo(-1.81, 1.65);
+            	triangle.lineTo(-3.41, 3.2);
 
             var triangle = new THREE.ExtrudeGeometry(triangle, extrudeSettings);
             var triangle_bot1 = new THREE.Mesh(triangle, material);
             triangle_bot1.position.z -= 3;
 
+
+            var curve = new THREE.Shape();
+            	curve.moveTo(-7.05,-4.6);
+            	//curve.quadraticCurveTo(-6.37, -4.825, -5.69, -5.05);
+            	curve.lineTo(-5.69, -5.05);
+            	curve.quadraticCurveTo(-6.3, -7.55, -8.41, -9.59);
+            	//curve.quadraticCurveTo(-9.09, -9.14, -9.77, -8.69);
+            	curve.lineTo(-9.77, -8.69);
+            	curve.quadraticCurveTo(-7.5, -7.09, -7.05,-4.6);
+            	
+            var curve = new THREE.ExtrudeGeometry(curve, extrudeSettings);
+            var curve1 = new THREE.Mesh(curve, material);
+            curve1.position.z -= 3;
+
+            var curve = new THREE.Shape();
+            	curve.moveTo(-5.24,-5.05);
+            	curve.lineTo(-3.88, -4.37);
+            	curve.quadraticCurveTo(-2.29,-6.19,-1.15,-8.69);
+            	curve.lineTo(-2.51,-9.37);
+            	curve.quadraticCurveTo(-3.65,-7.1,-5.24,-5.05);
+            	
+            var curve = new THREE.ExtrudeGeometry(curve, extrudeSettings);
+            var curve2 = new THREE.Mesh(curve, material);
+            curve2.position.z -= 3;
+
+            var curve = new THREE.Shape();
+            	curve.moveTo(-1.13,-4.14);
+            	curve.lineTo(-2.27, -3);
+            	curve.quadraticCurveTo(-0.91,-2.32,0.45,-0.73);
+            	curve.lineTo(1.59,-1.87);
+            	curve.quadraticCurveTo(0.23,-3.46,-1.13,-4.14);
+
+            var curve = new THREE.ExtrudeGeometry(curve, extrudeSettings);
+            var curve3 = new THREE.Mesh(curve, material);
+            curve3.position.z -= 3;            
+
+            var curve = new THREE.Shape();
+            	curve.moveTo(7.49,-7.77);
+            	curve.quadraticCurveTo(7.34,-8.68,4.77,-8.22);
+            	curve.lineTo(5.22,-9.81);
+            	curve.quadraticCurveTo(8.40,-9.59,8.63,-8.91);
+
+            var curve = new THREE.ExtrudeGeometry(curve, extrudeSettings);
+            var curve7 = new THREE.Mesh(curve, material);
+            curve7.position.z -= 3;  
+
+            var curve = new THREE.Shape();
+            	curve.moveTo(5.68,-5.93);
+            	curve.quadraticCurveTo(4.32,-7.78,1.59,-9.82);
+            	curve.lineTo(0.23,-8.91);
+            	curve.quadraticCurveTo(3.5,-6.87,4.54,-4.82);
+
+            var curve = new THREE.ExtrudeGeometry(curve, extrudeSettings);
+            var curve9 = new THREE.Mesh(curve, material);
+            curve9.position.z -= 3;
+
+            var curve = new THREE.Shape();
+            	curve.moveTo(3.19,-3.46);
+            	curve.quadraticCurveTo(2.51,-5.28,-0.22,-7.32);
+            	curve.lineTo(-1.36,-6.18);
+            	curve.quadraticCurveTo(1.7,-4.59,2.28,-2.55);
+
+            var curve = new THREE.ExtrudeGeometry(curve, extrudeSettings);
+            var curve11 = new THREE.Mesh(curve, material);
+            curve11.position.z -= 3; 
+
 			// Добавяме ги към обекта PART2 (името е фиксирано).
-			part2.add( lcube_down1,lcube_down2,lcube_down3,lcube_down4,lcube_mid1,lcube_mid2,triangle_mid1,triangle_bot1,triangle_top1);
+			part2.add( lcube_down1,lcube_down2,lcube_down3,lcube_down4,lcube_mid1,lcube_mid2,triangle_mid1,triangle_bot1,triangle_top1,curve1,curve2,curve3,curve7,curve9,curve11);
 
 			// Файлът kanji.js се грижи да нарисува земята и двете половини
 			// на йероглифа; грижи се и раздалечаването и приближаването на
